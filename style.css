@@ -1,3 +1,26 @@
-body {
-    background-color: aqua;
+.list {
+    background-color: grey;
+    list-style: none;
+    padding: 0;
+    width: 200px;
+}
+
+.list_grown {
+    margin: 20px;
+    width: 300px;
+}
+
+.item {
+    align-items: center;
+    background-color: burlywood;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    margin: 5px 0;
+    width: 100px;
+}
+
+.item_grown {
+    height: 200px;
+    margin: 10px;
 }

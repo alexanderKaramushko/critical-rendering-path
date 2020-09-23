@@ -7,7 +7,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World!</h1>
+    <section>
+        <button
+            class="button-unoptimized"
+            data-fn="reflowOnce"
+            role="button"
+            type="button"
+        >
+            Reflow (unoptimized)
+        </button>
+        <button
+            class="button-optimized"
+            data-fn="reflowOnce"
+            role="button"
+            type="button"
+        >
+            Reflow (optimized)
+        </button>
+        <ul class="list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+        </ul>
+    </section>
 </body>
 <script src="./script.js"></script>
 </html>
