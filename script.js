@@ -22,6 +22,11 @@ class Reflow {
         });
     }
 
+    createNode(tagName) {
+        const node = document.createElement(tagName);
+        return node;
+    }
+
     cacheReflow() {}
 
     reflowOnce() {}
@@ -30,6 +35,17 @@ class Reflow {
 class ReflowUnoptimized extends Reflow {
     constructor(...props) {
         super(...props);
+    }
+
+    appendItemsRaf = () => {
+        const t1 = performance.now();
+
+        for (const child of this.target.children) {
+            child.style.width = '200px';
+        }
+
+        const t2 = performance.now();
+        console.log(t2 - t1);
     }
 
     cacheReflow = () => {
@@ -50,6 +66,7 @@ class ReflowUnoptimized extends Reflow {
         }
 
         const t2 = performance.now();
+        console.log(t2 - t1);
     }
 
     reflowOnce = () => {
@@ -83,6 +100,35 @@ class ReflowOptimized extends Reflow {
         super(...props);
     }
 
+    appendItemsFragment = () => {
+        const t1 = performance.now();
+        const fragment = document.createDocumentFragment();
+
+        fragment.append(this.target.cloneNode(true));
+
+        for (const child of fragment.firstChild.children) {
+            child.classList.add('item_large');
+        }
+
+        this.target.replaceWith(fragment);
+
+        const t2 = performance.now(); 
+        console.log(t2 - t1);
+    }
+
+    appendItemsRaf = () => {
+        const t1 = performance.now();
+
+        for (const child of this.target.children) {
+            window.requestAnimationFrame(() => {
+                child.style.width = '200px';
+            });
+        }
+
+        const t2 = performance.now(); 
+        console.log(t2 - t1);
+    }
+
     cacheReflow = () => {
         const t1 = performance.now();
 
@@ -97,6 +143,7 @@ class ReflowOptimized extends Reflow {
         }
 
         const t2 = performance.now();
+        console.log(t2 - t1);
     }
 
     reflowOnce = () => {
