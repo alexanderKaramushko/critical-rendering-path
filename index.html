@@ -8,23 +8,190 @@
 </head>
 <body>
     <section>
-        <button
-            class="button-unoptimized"
-            data-fn="reflowOnce"
-            role="button"
-            type="button"
-        >
-            Reflow (unoptimized)
-        </button>
-        <button
-            class="button-optimized"
-            data-fn="reflowOnce"
-            role="button"
-            type="button"
-        >
-            Reflow (optimized)
-        </button>
+        <div>
+            <button
+                class="button button_unoptimized"
+                data-fn="cacheReflow"
+                role="button"
+                type="button"
+            >
+                Reflow (no reference cache)
+            </button>
+            <button
+                class="button button_optimized"
+                data-fn="cacheReflow"
+                role="button"
+                type="button"
+            >
+                Reflow (reference cache)
+            </button>
+        </div>
+        <div>
+            <button
+                class="button button_unoptimized"
+                data-fn="reflowOnce"
+                role="button"
+                type="button"
+            >
+                Reflow (multiple reflows)
+            </button>
+            <button
+                class="button button_optimized"
+                data-fn="reflowOnce"
+                role="button"
+                type="button"
+            >
+                Reflow (single reflow)
+            </button>
+        </div>
         <ul class="list">
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
+            <li class="item">list item</li>
             <li class="item">list item</li>
             <li class="item">list item</li>
             <li class="item">list item</li>

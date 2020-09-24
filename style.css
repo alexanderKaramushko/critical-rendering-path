@@ -2,12 +2,7 @@
     background-color: grey;
     list-style: none;
     padding: 0;
-    width: 200px;
-}
-
-.list_grown {
-    margin: 20px;
-    width: 300px;
+    width: 400px;
 }
 
 .item {
@@ -17,10 +12,27 @@
     height: 100px;
     justify-content: center;
     margin: 5px 0;
+    transition: all 0.5s ease;
     width: 100px;
 }
 
-.item_grown {
+.item_large {
+    width: 200px;
     height: 200px;
-    margin: 10px;
+}
+
+.button {
+    border: none;
+    color: #fff;
+    margin: 5px;
+    outline: none;
+    padding: 10px 15px;
+}
+
+.button_optimized {
+    background-color: #5ab400;
+}
+
+.button_unoptimized {
+    background-color: #ff0000;
 }

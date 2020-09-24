@@ -33,42 +33,48 @@ class ReflowUnoptimized extends Reflow {
     }
 
     cacheReflow = () => {
-        const children = this.target.children;
-        // Read
-        const item1Height = children[0].clientHeight;
+        const t1 = performance.now();
 
-        // Write (invalidates layout)
-        children[0].style.height = (item1Height * 2) + 'px';
+        for (const child of this.target.children) {
+            // Read
+            const height = child.clientHeight;
 
-        // Read (triggers layout)
-        const item2Height = children[1].clientHeight;
+            // Write (invalidates layout)
+            child.style.height = (height * 2) + 'px';
 
-        // Write (invalidates layout)
-        children[1].style.height = (item2Height * 2) + 'px';
+            // Read (triggers layout)
+            const width = child.clientWidth;
 
-        // Read (triggers layout)
-        const item3Height = children[2].clientHeight;
+            // Write (invalidates layout)
+            child.style.width = (width * 2) + 'px';
+        }
 
-        // Write (invalidates layout)
-        children[2].style.height = (item3Height * 2) + 'px';
+        const t2 = performance.now();
     }
 
     reflowOnce = () => {
-        // Read
-        const listHeight = this.target.clientWidth;
+        const t1 = performance.now();
 
-        // ...use listHeight for something else
+        for (const child of this.target.children) {
+            // Read
+            const height = child.clientHeight;
 
-        // Write (invalidates layout)
-        this.target.style.width = 300 + 'px';
+            // ...use height for something else
 
-        // Read (triggers layout)
-        const listOffsetLeft = this.target.offsetLeft;
+            // Write (invalidates layout)
+            child.style.height = 200 + 'px';
 
-        // ...use listOffsetLeft for something else
+            // Read (triggers layout)
+            const width = child.clientWidth;
 
-        // Write (invalidates layout)
-        this.target.style.margin = 20 + 'px';
+            // ...use width for something else
+
+            // Write (invalidates layout)
+            child.style.width = 200 + 'px';
+        }
+
+        const t2 = performance.now();
+        console.log(t2 - t1);
     }
 }
 
@@ -78,29 +84,36 @@ class ReflowOptimized extends Reflow {
     }
 
     cacheReflow = () => {
-        const children = this.target.children;
+        const t1 = performance.now();
 
-        // Read
-        const item1 = children[0].clientHeight;
-        const item2 = children[1].clientHeight;
-        const item3 = children[2].clientHeight;
+        for (const child of this.target.children) {
+            // Read
+            const height = child.clientHeight;
+            const width = child.clientWidth;
 
-        // Write (invalidates layout)
-        children[0].style.height = (item1 * 2) + 'px';
-        children[1].style.height = (item2 * 2) + 'px';
-        children[2].style.height = (item3 * 2) + 'px';
+            // Write (invalidates layout)
+            child.style.height = (height * 2) + 'px';
+            child.style.width = (width * 2) + 'px';
+        }
 
-        // Document reflows at end of frame
+        const t2 = performance.now();
     }
 
     reflowOnce = () => {
-        this.target.classList.add('list_grown');
+        const t1 = performance.now();
+
+        for (const child of this.target.children) {
+            child.classList.add('item_large');
+        }
+
+        const t2 = performance.now();
+        console.log(t2 - t1);
     }
 }
 
-const reflowUnoptimized = new ReflowUnoptimized('.button-unoptimized', '.list');
+const reflowUnoptimized = new ReflowUnoptimized('.button_unoptimized', '.list');
 reflowUnoptimized.addFnListeners();
 
-const reflowOptimized = new ReflowOptimized('.button-optimized', '.list');
+const reflowOptimized = new ReflowOptimized('.button_optimized', '.list');
 reflowOptimized.addFnListeners();
 
