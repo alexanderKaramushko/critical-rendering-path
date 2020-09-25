@@ -27,6 +27,10 @@ class Reflow {
         return node;
     }
 
+    appendItemsFragment() {}
+
+    appendItemsRaf() {}
+
     cacheReflow() {}
 
     reflowOnce() {}
@@ -43,6 +47,8 @@ class ReflowUnoptimized extends Reflow {
         for (const child of this.target.children) {
             child.style.width = '200px';
         }
+
+        this.target.children[0].clientWidth;
 
         const t2 = performance.now();
         console.log(t2 - t1);
@@ -107,9 +113,10 @@ class ReflowOptimized extends Reflow {
         fragment.append(this.target.cloneNode(true));
 
         for (const child of fragment.firstChild.children) {
-            child.classList.add('item_large');
+            child.style.width = '200px';
         }
 
+        this.target.children[0].clientWidth;
         this.target.replaceWith(fragment);
 
         const t2 = performance.now(); 
@@ -123,6 +130,7 @@ class ReflowOptimized extends Reflow {
             window.requestAnimationFrame(() => {
                 child.style.width = '200px';
             });
+            const width = child.clientHeight;
         }
 
         const t2 = performance.now(); 
